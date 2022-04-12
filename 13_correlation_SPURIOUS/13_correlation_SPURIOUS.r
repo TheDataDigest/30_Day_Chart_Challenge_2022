@@ -25,7 +25,6 @@ df_labels <- readxl::read_excel(path = paste0(getwd(), "/spurious_correlations.x
 
 names(df1)[3:4] <- c(df_labels$unit1[1], df_labels$unit2[1])
 
-
 cor_1 <- as.character(round(cor.test(df1$`billion dollar`, df1$suicides)$estimate, 4))
 
 
@@ -64,32 +63,14 @@ final_chart <- basic_1 +
                   plot.subtitle = element_text(hjust = 0.5)))
 
 
-
-## (5) Generate image charts as background_image() ----
-## Layout improvement and annotations ----
-plot_layout(widths = c(2, 1)) + 
-  plot_annotation(
-    caption = "Visualization: https://www.youtube.com/c/TheDataDigest | Data: BigPumpkins.com",
-    title = "",
-    subtitle = "xxx.<br> xxx <span style='color:#F28705'> xxx </span> xxx.<br> xxx.",
-    theme = theme(
-      plot.background = element_rect(fill = "grey20", color = NA),
-      plot.margin = margin(10,10,5,10),
-      plot.title = element_text(family = "mitr", size = 22, color = "#F28705", hjust = 0.5, margin = margin(5,0,10,0)),
-      plot.subtitle = element_markdown(family = "roboto", size = 14, color = "white", hjust = 0.5, margin = margin(5,0,15,0),lineheight = 1.2),         
-      plot.caption = element_text(family = "techmono", size = 11, color = "white", hjust = 0.95, margin = margin(5,0,5,0))     
-    )
-  )
-
-
 ## (5) Save png, pdf ----
 # save as PNG
-ggsave(path = getwd(), filename = "10_experimental_PVALUES.png", 
+ggsave(path = getwd(), filename = "13_correlation_SPURIOUS.png", 
        plot = final_chart, device = png,  
-       width = 7, height = 7, units = "in", dpi = 200)
+       width = 6, height = 7, units = "in", dpi = 200)
 
 # save as PDF
-ggsave(path = getwd(), filename = "10_experimental_PVALUES.pdf", 
+ggsave(path = getwd(), filename = "13_correlation_SPURIOUS.pdf", 
        plot = final_chart, device = cairo_pdf,  
-       width = 7, height = 7, units = "in")
+       width = 6, height = 7, units = "in")
 
