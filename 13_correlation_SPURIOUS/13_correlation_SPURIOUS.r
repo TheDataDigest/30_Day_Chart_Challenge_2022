@@ -6,6 +6,8 @@
 # https://github.com/TheDataDigest
 # https://twitter.com/DigestData
 
+# Data reference:
+# https://www.tylervigen.com/spurious-correlations
 
 ## (1) Setup and loading packages ----
 rm(list=ls())
@@ -67,10 +69,10 @@ final_chart <- basic_1 +
 # save as PNG
 ggsave(path = getwd(), filename = "13_correlation_SPURIOUS.png", 
        plot = final_chart, device = png,  
-       width = 6, height = 7, units = "in", dpi = 200)
+       width = 7, height = 4, units = "in", dpi = 200)
 
 # save as PDF
 ggsave(path = getwd(), filename = "13_correlation_SPURIOUS.pdf", 
        plot = final_chart, device = cairo_pdf,  
-       width = 6, height = 7, units = "in")
+       width = 7, height = 4, units = "in")
 
